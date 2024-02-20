@@ -11,7 +11,6 @@ import Icon from "../../components/Icon";
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
-// import Essai from "../../containers/essai/essai";
 
 const Page = () => {
   const {last} = useData()
@@ -25,7 +24,6 @@ const Page = () => {
       </section>
       <section className="ServicesContainer" id="nos-services">
         <h2 className="Title">Nos services</h2>
-        {/* <Essai/> */}
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
           <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">

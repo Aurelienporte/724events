@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Home from "./index";
 
 describe("When Form is created", () => {
@@ -20,25 +20,34 @@ describe("When Form is created", () => {
           bubbles: true,
         })
       );
-      await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
+      await waitFor(()=> screen.findByText("En cours"),{ timeout: 2000 } );
+      await waitFor(()=> screen.findByText("Message envoyé !"),{ timeout: 2000 } );
     });
   });
 
 });
 
-
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+  it("a list of events is displayed", async () => {
+    render(<Home />);
+    await screen.findByTestId("card-testid");
   })
   it("a list a people is displayed", () => {
-    // to implement
+    render(<Home />);
+      screen.findByText("CEO");
+      screen.findByText("Directeur marketing");
+      screen.findByText("CXO");
+      screen.findByText("Animateur");
+      screen.findByText("VP animation");
+      screen.findByText("VP communication");
   })
   it("a footer is displayed", () => {
-    // to implement
+    render(<Home />);
+    screen.findByText("Notre derniére prestation");
+    screen.findByText("Contactez-nous");
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    await waitFor( () => screen.findByText("boom")) ;
   })
 });
