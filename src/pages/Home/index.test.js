@@ -24,7 +24,6 @@ describe("When Form is created", () => {
       await waitFor(()=> screen.findByText("Message envoyé !"),{ timeout: 2000 } );
     });
   });
-
 });
 
 describe("When a page is created", () => {
